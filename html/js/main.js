@@ -1,6 +1,6 @@
 "use strict";
 
-var QBRadialMenu = null;
+var EZRadialMenu = null;
 var keybindConfig = false;
 $(document).ready(function () {
     window.addEventListener("message", function (event) {
@@ -9,14 +9,14 @@ $(document).ready(function () {
                 keybindConfig = event.data.keybind;
                 if (event.data.radial) {
                     createMenu(event.data.items);
-                    QBRadialMenu.open();
+                    EZRadialMenu.open();
                 } else {
-                    QBRadialMenu.close(true);
+                    EZRadialMenu.close(true);
                 }
                 $(document).on("keydown", function (e) {
                     switch (e.key) {
                         case keybindConfig:
-                            QBRadialMenu.close();
+                            EZRadialMenu.close();
                             break;
                     }
                 });
@@ -24,13 +24,13 @@ $(document).ready(function () {
     });
 });
 function createMenu(items) {
-    QBRadialMenu = new RadialMenu({
+    EZRadialMenu = new RadialMenu({
         parent: document.body,
         size: 375,
         menuItems: items,
         onClick: function (item) {
             if (item.shouldClose) {
-                QBRadialMenu.close(true);
+                EZRadialMenu.close(true);
             }
 
             if (item.items == null && item.shouldClose != null) {
@@ -49,8 +49,8 @@ function createMenu(items) {
 $(document).on("keydown", function (e) {
     switch (e.key) {
         case "Escape":
-            QBRadialMenu.close();
-            
+            EZRadialMenu.close();
+
             break;
     }
 });

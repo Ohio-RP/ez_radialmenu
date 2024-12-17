@@ -433,16 +433,16 @@ Config.JobInteractions = {
             {
                 id = 'revive',
                 title = 'Revive',
-                icon = 'eye-slash',
+                icon = 'suitcase-medical',
                 type = 'client',
-                event = 'qb-taxi:client:toggleMeter',
+                event = 'entereventhere',
                 shouldClose = false
             }, {
                 id = 'heal',
                 title = 'Heal',
-                icon = 'hourglass-start',
+                icon = 'hand-holding-heart',
                 type = 'client',
-                event = 'qb-taxi:client:enableMeter',
+                event = 'entereventhere',
                 shouldClose = true
             }
         }
