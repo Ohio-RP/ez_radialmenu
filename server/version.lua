@@ -20,7 +20,6 @@ end
 PerformHttpRequest( "https://raw.githubusercontent.com/EZ-Scripts/versions/main/"..GetResourceMetadata(GetCurrentResourceName(), "name" ), function( err, text, headers )
 	-- Wait to reduce spam
 	Citizen.Wait( 2000 )
-
 	-- Print the branding!
 	print( label )
 

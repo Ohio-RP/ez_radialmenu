@@ -2,10 +2,10 @@ fx_version 'cerulean'
 game 'rdr3'
 rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
 
-name 'RadialMenu'
 description '[VORP] A radial menu for RedM'
 author 'Rayaan Uddin'
 version '1.0'
+name "ez_radialmenu"
 
 lua54 'yes'
 
