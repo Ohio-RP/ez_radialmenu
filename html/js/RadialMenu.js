@@ -56,7 +56,7 @@ RadialMenu.prototype.close = function (bool) {
     var self = this;
 
     if (self.currentMenu) {
-        $.post(`https://dda_radialmenu/closeRadial`, JSON.stringify({ delay: bool }));
+        $.post(`https://${GetParentResourceName()}/closeRadial`, JSON.stringify({ delay: bool }));
         var parentMenu;
         while ((parentMenu = self.parentMenu.pop())) {
             parentMenu.remove();
@@ -424,7 +424,7 @@ RadialMenu.prototype.createImage = function (x, y, href, center) {
         image.setAttribute("y", RadialMenu.numberToString(y) - 5);
     }
     image.setAttribute("width", "15");
-    image.setAttributeNS("http://www.w3.org/1999/xlink", "href", "nui://dda_radialmenu/html/js/img/"+href); // Sets the image source
+    image.setAttributeNS("http://www.w3.org/1999/xlink", "href", `nui://${GetParentResourceName()}/html/js/img/`+href); // Sets the image source
     image.setAttribute("preserveAspectRatio", "xMidYMid meet"); // Ensures the aspect ratio is preserved
     return image;
 };
@@ -638,13 +638,6 @@ RadialMenu.setClassAndWaitForTransition = function (node, newClass) {
 RadialMenu.nextTick = function (fn) {
     setTimeout(fn, 10);
 };
-
-/*!
- * Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
- * Search: https://fontawesome.com/v5.0/icons?d=gallery&p=2&s=brands,light,regular,solid&m=free
- * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- * Modified for dda_radialmenu by zfbx
- */
 
 const icos = {
     0: [320, 512, [], "30", "M160 32.01c-88.37 0-160 71.63-160 160v127.1c0 88.37 71.63 160 160 160s160-71.63 160-160V192C320 103.6 248.4 32.01 160 32.01zM256 320c0 52.93-43.06 96-96 96c-52.93 0-96-43.07-96-96V192c0-52.94 43.07-96 96-96c52.94 0 96 43.06 96 96V320z"],
