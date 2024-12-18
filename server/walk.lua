@@ -1,3 +1,6 @@
+if Config.Framework ~= "vorp" then
+    return
+end
 local Core = exports.vorp_core:GetCore()
 
 AddEventHandler("vorp:SelectedCharacter", function(source, character)

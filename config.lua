@@ -2,6 +2,8 @@ Config = {}
 Config.Keybind = 0x3C0A40F2 -- F6
 Config.KeybindJS = "F6"
 
+Config.Framework = "vorp" -- "vorp" or "standalone"
+
 Config.MenuItems = {
     {
         id = 'character',
