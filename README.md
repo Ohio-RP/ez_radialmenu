@@ -26,3 +26,5 @@ exports[‘ez_radialmenu’]:AddOption(
   nil
 )
 ```
+
+Credit: https://github.com/qbcore-framework/qb-radialmenu
