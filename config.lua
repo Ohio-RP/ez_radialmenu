@@ -352,6 +352,29 @@ Config.MenuItems = {
     },
 }
 
+
+-- Adding waypoint, Change if you want coords = {x = 0, y = 0, z = 0}
+Config.AddWaypoint = function (coords)
+    blip = false
+    Wait(100)
+    ClearGpsMultiRoute()
+    StartGpsMultiRoute(`COLOR_RED`, true, true)
+    AddPointToGpsMultiRoute(coords.x, coords.y, coords.z)
+    SetGpsMultiRouteRender(true)
+    blip = true
+    Citizen.CreateThread(function()
+        while blip do
+            Wait(0)
+            local distance = #(GetEntityCoords(PlayerPedId()) - coords)
+            if distance < 5 then
+                blip = false
+                ClearGpsMultiRoute()
+                SetGpsMultiRouteRender(false)
+            end
+        end
+    end)
+end
+
 Config.Locations = {
     ["store"] = {
 

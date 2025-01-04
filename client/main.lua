@@ -195,7 +195,7 @@ RegisterNUICallback('selectItem', function(inData, cb)
                         current = i
                     end
                 end
-                TriggerEvent("3d_waypoint:setWaypoint", Config.Locations[data.id][current])
+                Config.AddWaypoint(Config.Locations[data.id][current])
             end
         end
     end
