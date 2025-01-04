@@ -356,6 +356,7 @@ Config.MenuItems = {
 -- Adding waypoint, Change if you want coords = {x = 0, y = 0, z = 0}
 Config.AddWaypoint = function (coords)
     blip = false
+    SetWaypointOff()
     Wait(100)
     ClearGpsMultiRoute()
     StartGpsMultiRoute(`COLOR_RED`, true, true)
@@ -366,13 +367,14 @@ Config.AddWaypoint = function (coords)
         while blip do
             Wait(0)
             local distance = #(GetEntityCoords(PlayerPedId()) - coords)
-            if distance < 5 then
+            if distance < 5 or IsWaypointActive() then
                 blip = false
                 ClearGpsMultiRoute()
                 SetGpsMultiRouteRender(false)
             end
         end
     end)
+
 end
 
 Config.Locations = {
