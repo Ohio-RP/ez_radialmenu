@@ -6,6 +6,21 @@ Config.Framework = "vorp" -- "vorp" or "standalone"
 
 Config.MenuItems = {
     {
+        id = 'general',
+        title = 'General',
+        image = 'wheel.png',
+        items = {
+            {
+                id = 'mail',
+                title = 'Mail',
+                icon = "envelope-open",
+                type = 'command',
+                event = 'mail',
+                shouldClose = true,
+            },
+        }
+    },
+    {
         id = 'character',
         title = 'Character',
         image = 'cowboy.png',
@@ -16,6 +31,14 @@ Config.MenuItems = {
                 icon = "face-smile",
                 type = 'command',
                 event = 'emotemenu',
+                shouldClose = true,
+            },
+            {
+                id = 'jobmenu',
+                title = 'Jobs',
+                icon = "briefcase",
+                type = 'command',
+                event = 'jobmenu',
                 shouldClose = true,
             },
             {
@@ -374,7 +397,7 @@ Config.AddWaypoint = function (coords)
             end
         end
     end)
-
+    TriggerEvent("3d_waypoint:setWaypoint", coords)
 end
 
 Config.Locations = {
