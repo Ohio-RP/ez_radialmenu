@@ -6,9 +6,7 @@
 - Select walking styles build in to change and update on server side for VORP.
 - Add Items to show only for specific jobs.
 - Add items from other scripts dynamically.
-- Get nearby locations via 3d waypoint
-
-Dependancy [3d_waypoint](https://github.com/EZ-Scripts/3d_waypoint/tree/main), to waypoint Blips for closest location.
+- Get nearby locations via GPS.
 
 ## Adding and Removing Dynamically
 ```lua
