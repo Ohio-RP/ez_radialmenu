@@ -2,6 +2,7 @@ local inRadialMenu = false
 local jobIndex = nil
 local DynamicMenuItems = {}
 local FinalMenuItems = {}
+local playerOnDuty = false
 
 -- Functions
 
@@ -138,24 +139,22 @@ local function setRadialState(bool, sendMessage, delay)
     inRadialMenu = bool
 end
 
--- Command
+CreateThread(function()
+    while true do
+        playerOnDuty = exports['ohio_duty']:isPlayerOnDuty(1)
+        Wait(5000) -- Check every 5 seconds
+    end
+end)
+
 
 RegisterCommand('radialmenu', function()
-    if not IsUnable() and not IsPauseMenuActive() and not inRadialMenu then
+    if playerOnDuty and not IsUnable() and not IsPauseMenuActive() and not inRadialMenu then
         setRadialState(true, true)
         SetCursorLocation(0.5, 0.5)
     end
 end, false)
 
--- Main Open Event
-CreateThread(function()
-    while true do
-        if IsControlJustReleased(0, Config.Keybind) then
-            ExecuteCommand("radialmenu")
-        end
-        Wait(0)
-    end
-end)
+
 
 AddEventHandler('onClientResourceStop', function(resource)
     for k, v in pairs(DynamicMenuItems) do
